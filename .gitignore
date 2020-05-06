@@ -1,0 +1,17 @@
+# Misc
+.DS_Store
+test-output/
+.factorypath
+.classpath
+
+# Common JS
+node_modules/
+
+# Common Java
+target/
+
+# Editors
+*.iml
+.idea/
+.project/
+.settings/
