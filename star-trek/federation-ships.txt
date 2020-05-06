@@ -1,0 +1,303 @@
+Adelphi
+Agamemnon
+Ahwahnee
+Ajax
+Akagi
+Al-Batani
+Albert Einstein
+Aleo
+Antares
+Apollo
+Appalachia
+Archer
+Archon
+Arcos
+Ariel
+Aries
+Armstrong
+Artemis
+Aryabhatta
+Astral Queen
+Atlantis
+Augyn
+Aurora
+Baton Rouge
+Beagle
+Bellerophon
+Berlin
+Biddeford
+Biko
+Billings
+Bonaventure
+Bonchune
+Bonestell
+Bouman
+Bounty
+Bozeman
+Bradbury
+Brattain
+Budapest
+Buran
+Cairo
+Callisto
+Carolina
+Centaur
+Challenger
+Charleston
+Chatelet
+Chekov
+Chicago
+Clarke
+Clavyn
+Clayton
+Clement
+Cochrane
+Coleman
+Columbia
+Concord
+Constantinople
+Constellation
+Cooper
+Copernicus
+Cortez
+Crazy Horse
+Crockett
+Curry
+D'hjty
+Da-Teplan
+Dana
+De Milo
+Defiant
+Denver
+Destiny
+Dierdre
+Discovery
+Donovan
+Drake
+Eagle
+Eagle Valley
+Earhart
+Edison
+Elkins
+Emden
+Endeavour
+Entente
+Enterprise
+Equicon
+Equinox
+Essex
+Europa
+Excalibur
+Excelsior
+Exeter
+Farouk El-Baz
+Farragut
+Fearless
+Firebrand
+Franklin
+Fredrickson
+G'Mat
+Gagarin
+Galaxy
+Gallico
+Gander
+Gandhi
+Ganges
+Ganymede
+Gettysburg
+Glenn
+Goddard
+Gorkon
+Gremlin
+Greyhound
+Grissom
+Hathaway
+Hatteras
+Havana
+Helin
+Hera
+Hermes
+Hiawatha
+Hispaniola
+Hokule'a
+Honshu
+Hood
+Hoover
+Horatio
+Horizon
+Hornet
+Huron
+Intrepid
+James Fennimore Cooper
+Jenolan
+John F. Kennedy
+John Muir
+K'Warko
+Kearsarge
+Kelvin
+Kerala
+Kogin
+Kongo
+Korolev
+Kyushu
+La Sirena
+LaSalle
+Lakota
+Lakul
+Lalo
+Lantree
+Leeds
+Leondegrance
+Lexington
+Liberator
+Livingston
+Madison
+Magellan
+Majestic
+Malinche
+Malone
+Manila
+Manoa
+Mare Tranquillitatis
+Maryland
+Matte Fringe
+Max Plank
+Mayflower
+Mekong
+Melbourne
+Merrimac
+Milan
+Min'ow
+Minnow
+Molokai
+Monitor
+Muleskinner
+Muroc
+Musashi
+Mustang
+Nash
+Nautilus
+Neil Armstrong
+Newton
+Niels Bohr
+Nightingale
+Nightwing
+Nobel
+Norkova
+Northridge
+Nova
+Oberth
+Odin
+Odyssey
+Okinawa
+Olympia
+Omaha Nebraska
+Orinoco
+Pasteur
+Pegasus
+Peterson
+Philadelphia
+Phoenix
+Portland
+Potemkin
+Princeton
+Prokofiev
+Prometheus
+Proxima
+Pueblo
+Puget Sound
+Quiele
+Raging Queen
+Raman
+Raven
+Relativity
+Reliant
+Renegade
+Republic
+Repulse
+Revere
+Rhode Island
+Ride
+Rio Grande
+Robert Fox
+Robert Louis Stevenson
+Roosevelt
+Rubicon
+Rutledge
+Salcombe
+Santa Maria
+Sarajevo
+Saratoga
+Sarek
+Scovill
+Seaquest
+Seaview
+Sentinel
+Shenandoah
+Shenzhou
+Shepard
+Sherlock Holmes
+Shiku Maru
+ShirKahr
+Shran
+Silversides
+Sioux
+Sitak
+Springfield
+Stargazer
+Stella
+Strata
+Suleiman
+Sutherland
+Syracuse
+T'Kumbra
+T'Plana-Hath
+Tecumseh
+Thomas Paine
+Thunderchild
+Tian An Men
+Ticonderoga
+Titan
+Tolstoy
+Tombaugh
+Tranquillity Base
+Trial
+Trieste
+Tripoli
+Truman
+Tsiolkovsky
+Tycho
+Ulysses
+Umibozu
+Unicorn
+Valdemar
+Valiant
+Valley Forge
+Vengeance
+Venture
+Veracruz
+Vico
+Victory
+Volga
+Voyager
+Wellington
+White Sands
+Whorfin
+Wisconsin
+Woden
+Wolcott
+Wyoming
+Xhosa
+Yamaguchi
+Yamato
+Yangtzee Kiang
+Yeager
+Yellowstone
+Yorkshire
+Yorktown
+Yosemite
+Yukon
+Yuri Gagarin
+Zapata
+Zhukov
+ibn Majid
