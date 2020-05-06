@@ -8,8 +8,8 @@ These were compiled by me and are not licensed for use, as copyright law is tric
 
 ## Word Lists
 
-| File | Description | # |
-| --- | --- | ---: |
-| [all](all.txt) | All words, including names, spells, places, etc. | 313 |
-| [spells-potions](spells-potions.txt) | Spell parts, potions, and similar. | 76 |
+| File | Description | # | License |
+| --- | --- | ---: | --- |
+| [all](all.txt) | All words, including names, spells, places, etc. | 313 | None |
+| [spells-potions](spells-potions.txt) | Spell parts, potions, and similar. | 76 | None |
 
