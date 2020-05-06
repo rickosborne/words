@@ -1,0 +1,388 @@
+abjurer
+abominable yeti
+acolyte
+air elemental
+alhoon
+androsphinx
+annis hag
+ape
+arcanaloth
+archdruid
+archer
+archmage
+archon
+ash zombie
+assassin
+assassin bug
+auroch
+awakened shrub
+awakened tree
+axe beak
+babau
+baboon
+badger
+baloths
+banderhobb
+bandit
+bard
+barghest
+bat
+bear
+beetle
+beholder
+berserker
+bheur hag
+black pudding
+blackguard
+blagothkus
+blindheim
+blink dog
+blood hawk
+boar
+bodak
+boggle
+brontosaurus
+bugbear
+bullywug
+camel
+captain
+cat
+catoblepas
+cattle
+cave fisher
+centipede
+champion
+chitine
+chitines
+choldrith
+commoner
+conjurer
+corby
+cow
+crab
+cranium rat
+crocodile
+cultist
+dao
+darkling
+death dog
+death kiss
+death slaad
+deep gnome
+deep scion
+deer
+deinonychus
+demon
+devilkin
+devourer
+dimetrodon
+dire wolf
+diviner
+djinni
+dolphin
+doppelganger
+draegloth
+dragon
+dragon turtle
+dragonclaw
+dragonwing
+drider
+druid
+dryad
+duergar
+duodrone
+dust mephit
+dwarf
+eagle
+earth elemental
+efreeti
+elder brain
+eldrazi
+elementals
+elephant
+elk
+empyrean
+enchanter
+ettercap
+ettin
+evoker
+faerie dragon
+fanatic
+felidar
+fire beetle
+fire elemental
+fire giant
+fire snake
+firenewt
+flail snail
+flameskull
+flesh golem
+flind
+flumph
+flying snake
+fog giant
+fomorian
+forlarren
+four-armed troll
+frog
+froghemoth
+frost giant
+frulam mondath
+fungi
+fungus
+galeb duhr
+gargoyle
+gas spore
+gauth
+gazer
+gazer familiar
+gelatinous cube
+genies
+ghast
+ghost
+ghoul
+ghouls
+giant
+gibbering mouther
+girallon
+gith
+githyanki
+githzerai
+gladiator
+gnoll
+goat
+goblin
+gold dragon
+golem
+golems
+gomazoa
+gorgon
+grell
+grick
+griffon
+grimlock
+grung
+guard
+guardian
+gynosphinx
+hadrosaurus
+hag
+hags
+harpy
+hawk
+hell hound
+helmed horror
+hill giant
+hippogriff
+hobgoblin
+homunculus
+hook horror
+horse
+hunter shark
+hurdas
+hydra
+hyena
+ice mephit
+illusionist
+imp
+incubus
+insect
+intellect devourer
+invisible stalker
+iron golem
+jackal
+jackalwere
+jelly
+jermlaine
+kenku
+khargra
+ki-rin
+killer whale
+killmoulis
+knight
+kobold
+korred
+kraken
+kuo-toa
+lamia
+leucrotta
+lich
+lion
+lizard
+lizardfolk
+lycanthrope
+mage
+magmin
+mammoth
+manticore
+marid
+mastiff
+medusa
+meenlock
+mephit
+mephits
+merfolk
+merrow
+mezzoloth
+mimic
+mind flayer
+mindwitness
+minotaur
+mite
+modron
+modrons
+monodrone
+morkoth
+mule
+mummies
+mummy
+myconid
+naga
+necromancer
+needlefolk
+neogi
+neothelid
+night hag
+nightmare
+nilbog
+noble
+norker
+nothic
+nycaloth
+octopus
+ogre
+oni
+ooze
+orc
+orog
+otyugh
+owl
+owlbear
+ox
+panther
+pegasus
+pentadrone
+peryton
+piercer
+pirate
+pixie
+poltergeist
+pony
+priest
+pseudodragon
+quadrone
+quaggoth
+quasit
+quetzalcoatlus
+quickling
+quipper
+rakshasa
+rat
+rath modar
+raven
+redcap
+remorhaz
+revenant
+rezmir
+rhinoceros
+roc
+roper
+rot grub
+rothé
+ruffian
+rug of smothering
+rust monster
+sahuagin
+salamander
+salamanders
+satyr
+scarecrow
+scorpion
+scout
+sea horse
+shadow
+shambling mound
+shark
+shoosuva
+shrieker
+skeleton
+slaad
+snake
+spectator
+specter
+sphinxes
+spider
+spore
+sprite
+spy
+stegosaurus
+stench kow
+stirge
+stone dreamwalker
+stone giant
+stone golem
+storm giant
+storm quintessent
+strider
+succubus
+swashbuckler
+tanarukk
+tarrasque
+thief
+thorny
+thri-kreen
+thug
+tiger
+timbermaw
+tlincalli
+toad
+transmuter
+trapper
+treant
+tridrone
+troglodyte
+troll
+twig blight
+ulitharid
+ultroloth
+umber hulk
+unicorn
+vampire
+vargouille
+vegepygmy
+velociraptor
+veteran
+vulture
+warhorse
+warlock
+warlord
+warrior
+wasp
+water elemental
+water weird
+weasel
+werebear
+wereboar
+wererat
+weretiger
+werewolf
+wight
+will-o'-wisp
+winged kobold
+wizard
+wolf
+wolf spider
+wood woad
+worg
+worm
+wraith
+wyrmling
+wyvern
+xill
+xorn
+xvart
+yeth hound
+yeti
+yuan-ti
+yugoloth
+zombie
