@@ -12,4 +12,4 @@ Each word list has been re-licensed under the same terms.
 
 | File | Description | # | License |
 | --- | --- | ---: | --- |
-| [elvish](elvish.txt) | Elvish words and names | 444 | CC-BY-SA |
+| [elvish](elvish.txt) | Elvish words and names | 780 | CC-BY-SA |
