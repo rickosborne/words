@@ -49,7 +49,9 @@
 			display: flex;
 		}
 
-		#t h1 { flex-grow: 1; }
+		#t h1 {
+			flex-grow: 1;
+		}
 
 		#f {
 			font-size: 100%;
@@ -115,10 +117,12 @@
 			display: flex;
 			flex-direction: row;
 		}
+
 		#toggles {
 			display: flex;
 			flex-wrap: wrap;
 		}
+
 		#lists {
 			display: flex;
 			flex-wrap: wrap;
@@ -133,36 +137,46 @@
 			background-color: #48f;
 			color: white;
 		}
+
 		.button.disabled {
 			background-color: #666;
 			color: #999;
 		}
+
 		.group {
 			background-color: #369;
 			color: white;
 		}
+
 		.group.active {
 			background-color: #48f;
 		}
+
 		.used:before {
 			content: '☐';
 		}
+
 		.used.active:before {
 			content: '☑︎';
 		}
+
 		.word-list:hover, .word-list:focus, .select-none:hover, .select-all:hover, .select-none:focus, .select-all:focus {
 			background-color: #8cf;
 			cursor: pointer;
 		}
+
 		.group-title {
 			background-color: #ccc;
 		}
+
 		.list-count {
 			text-align: right;
 		}
+
 		.select-all {
 			text-align: center;
 		}
+
 		#total-words {
 			color: #aaa;
 		}
@@ -182,23 +196,23 @@
 </header>
 <article>
 	<section id="phrase-c">
-		<button id="regenerate" title="(R)egenerate" class="button" accesskey="r">&rarr;<br>&larr;</button>
+		<button accesskey="r" class="button" id="regenerate" title="(R)egenerate">&rarr;<br>&larr;</button>
 		<span class="loading" id="phrase">(loading)</span>
 	</section>
 	<section id="config">
 		<div id="toggles">
 			<div id="count-c">
 				<div>Count:</div>
-				<button id="fewer" title="(F)ewer words" class="button" accesskey="f">-</button>
+				<button accesskey="f" class="button" id="fewer" title="(F)ewer words">-</button>
 				<div id="count"></div>
-				<button id="more" title="(M)ore words" class="button" accesskey="m">+</button>
+				<button accesskey="m" class="button" id="more" title="(M)ore words">+</button>
 			</div>
 			<div id="transform-c">
 				<div>Transform:</div>
-				<button id="transform-none" title="(N)one" class="transform group" accesskey="n">(none)</button>
-				<button id="transform-uppercase" title="(U)ppercase" class="transform group" accesskey="u">UPPER</button>
-				<button id="transform-lowercase" title="(L)owercase" class="transform group" accesskey="l">lower</button>
-				<button id="transform-titlecase" title="(T)itle" class="transform group" accesskey="t">Title</button>
+				<button accesskey="n" class="transform group" id="transform-none" title="(N)one">(none)</button>
+				<button accesskey="u" class="transform group" id="transform-uppercase" title="(U)ppercase">UPPER</button>
+				<button accesskey="l" class="transform group" id="transform-lowercase" title="(L)owercase">lower</button>
+				<button accesskey="t" class="transform group" id="transform-titlecase" title="(T)itle">Title</button>
 			</div>
 		</div>
 		<div id="lists"></div>
@@ -210,91 +224,96 @@
 		href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA</a>.</p>
 </footer>
 <script type="text/javascript">
+	/* ====================================================================
+	 * Yep.  This code is awful.  It was written by hand, not transpiled!
+	 * And there's no framework!  Oh, the horror!
+	 * ====================================================================
+	 */
 	const wordLists = [
 		{
 			title: 'Colors (All)',
 			group: 'Color',
-			href: '/color/colors.txt',
+			href: './color/colors.txt',
 		}, {
 			title: 'Crayola Fluorescent Colors',
 			group: 'Color',
-			href: '/color/crayola-fluorescent.txt',
+			href: './color/crayola-fluorescent.txt',
 		}, {
 			title: 'Crayola Standard Colors',
 			group: 'Color',
-			href: '/color/crayola-standard.txt',
+			href: './color/crayola-standard.txt',
 		}, {
 			title: 'HTML/CSS Colors',
 			group: 'Color',
-			href: '/color/html-css.txt',
+			href: './color/html-css.txt',
 		}, {
 			title: 'Doctor Who Species',
 			group: 'Doctor Who',
-			href: '/doctor-who/species.txt',
+			href: './doctor-who/species.txt',
 		}, {
 			title: 'Harry Potter (All)',
 			group: 'Harry Potter',
-			href: '/harry-potter/all.txt',
+			href: './harry-potter/all.txt',
 		}, {
 			title: 'Harry Potter Spells / Potions',
 			group: 'Harry Potter',
-			href: '/harry-potter/spells-potions.txt',
+			href: './harry-potter/spells-potions.txt',
 		}, {
 			title: 'Dungeons and Dragons Monsters',
 			group: 'RPG',
-			href: '/rpg/dnd-monsters.txt',
+			href: './rpg/dnd-monsters.txt',
 		}, {
 			title: 'Star Trek Alpha / Beta Quadrant Species',
 			group: 'Star Trek',
-			href: '/star-trek/alpha-beta-species.txt',
+			href: './star-trek/alpha-beta-species.txt',
 		}, {
 			title: 'Star Trek Cardassian Ship Names',
 			group: 'Star Trek',
-			href: '/star-trek/cardassian-ships.txt',
+			href: './star-trek/cardassian-ships.txt',
 		}, {
 			title: 'Star Trek Delta Quadrant Species',
 			group: 'Star Trek',
-			href: '/star-trek/delta-species.txt',
+			href: './star-trek/delta-species.txt',
 		}, {
 			title: 'Star Trek Federation Ship Class Names',
 			group: 'Star Trek',
-			href: '/star-trek/federation-ship-class.txt',
+			href: './star-trek/federation-ship-class.txt',
 		}, {
 			title: 'Star Trek Federation Ship Names',
 			group: 'Star Trek',
-			href: '/star-trek/federation-ships.txt',
+			href: './star-trek/federation-ships.txt',
 		}, {
 			title: 'Star Trek Gamma Quadrant Species',
 			group: 'Star Trek',
-			href: '/star-trek/gamma-species.txt',
+			href: './star-trek/gamma-species.txt',
 		}, {
 			title: 'Star Trek Humanoid Species',
 			group: 'Star Trek',
-			href: '/star-trek/humanoid-species.txt',
+			href: './star-trek/humanoid-species.txt',
 		}, {
 			title: 'Star Trek Klingon Ships',
 			group: 'Star Trek',
-			href: '/star-trek/klingon-ships.txt',
+			href: './star-trek/klingon-ships.txt',
 		}, {
 			title: 'Star Trek Romulan Ships',
 			group: 'Star Trek',
-			href: '/star-trek/romulan-ships.txt',
+			href: './star-trek/romulan-ships.txt',
 		}, {
 			title: 'Star Trek Ships (All)',
 			group: 'Star Trek',
-			href: '/star-trek/ships.txt',
+			href: './star-trek/ships.txt',
 		}, {
 			title: 'Star Trek Species (All)',
 			group: 'Star Trek',
-			href: '/star-trek/species.txt',
+			href: './star-trek/species.txt',
 		}, {
 			title: 'Star Wars Planets',
 			group: 'Star Wars',
-			href: '/star-wars/planets.txt',
+			href: './star-wars/planets.txt',
 		}, {
 			title: 'Elvish Words',
 			group: 'Tolkien',
-			href: '/tolkien/elvish.txt',
+			href: './tolkien/elvish.txt',
 		}
 	];
 	const settings = {
@@ -306,31 +325,25 @@
 		wordCountMin: 1,
 		wordListTitles: [],
 	};
-	const fetchWordList = (function memoizeFetchWordList() {
-		const wordListCache = {};
-		return function memoizedFetchWordList(wordList) {
-			const href = wordList.href;
-			const dataFile = wordListCache[href];
-			if (dataFile != null) return Promise.resolve(dataFile);
-			return fetch('.' + href)
-				.then(response => {
-					if (response.ok) {
-						return response.text();
-					} else {
-						console.warn('Could not load: ', wordList, response);
-					}
-				})
-				.then(textOrNull => {
-					if (textOrNull != null) {
-						const words = textOrNull.split(/\r?\n+/g).filter(word => word != null && word !== '');
-						// wordListCache[href] = words;
-						return words;
-					}
-					console.warn('Could not load: ', wordList, textOrNull);
-					return [];
-				});
-		};
-	})();
+
+	function fetchWordList(wordList) {
+		return fetch(wordList.href)
+			.then(response => {
+				if (response.ok) {
+					return response.text();
+				} else {
+					console.warn('Could not load: ', wordList, response);
+				}
+			})
+			.then(textOrNull => {
+				if (textOrNull != null) {
+					const words = textOrNull.split(/\r?\n+/g).filter(word => word != null && word !== '');
+					return words;
+				}
+				console.warn('Could not load: ', wordList, textOrNull);
+				return [];
+			});
+	}
 
 	function loadWordLists(doc) {
 		const lists = doc.getElementById('lists');
