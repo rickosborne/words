@@ -1,0 +1,13 @@
+LICENSE
+
+This site (words.supply) and the word lists available from it are licensed under different terms.
+
+The site itself, including HTML, CSS, and JavaScript, are licensed under
+Creative Commons Attribution-NonCommercial-ShareAlike:
+
+	https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+For details about license terms for the individual word lists, see the GitHub repository:
+
+	https://github.com/rickosborne/words
+

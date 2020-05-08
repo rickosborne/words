@@ -1,0 +1,3 @@
+The site `words.supply` and the word lists used on it were built by Rick Osborne, of rickosborne.org.
+
+He thinks he's clever.

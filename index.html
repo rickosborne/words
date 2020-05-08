@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>words.supply - Random nerdy readable ID and password generator</title>
+	<base href="https://words.supply/">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta content="width=device-width, initial-scale=1" name=viewport>
+	<meta content="Yes, please." name="description">
+	<link href="https://words.supply/" rel="canonical">
+	<link href="/LICENSE.txt" rel="license">
+	<link href="/humans.txt" rel="author" type="text/plain">
+	<link href="/favicon.png" rel="apple-touch-icon" sizes="512x512" type="image/png">
+	<link href="/favicon.png" rel="icon" sizes="512x512" type="image/png">
+	<style type="text/css">
+		html, body {
+			width: 100%;
+			min-height: 100%;
+		}
+
+		html, body, dl, dt, dd, h1, section, button, ul, li, ol {
+			font-size: 100%;
+			margin: 0;
+			padding: 0;
+			display: block;
+			border: none;
+			list-style: none;
+			text-indent: 0;
+		}
+
+		body {
+			background-color: white;
+			color: black;
+			font-family: Roboto, Calibri, Helvetica, Arial, sans-serif;
+		}
+
+		#c, #t {
+			display: block;
+		}
+
+		#t {
+			font-size: 4vh;
+			font-size: max(100%, min(4vh, 4vw));
+			background-color: #246;
+			color: white;
+			padding: 4vh;
+			padding: min(2vh, 2vw);
+			text-align: center;
+			display: flex;
+		}
+
+		#t h1 { flex-grow: 1; }
+
+		#f {
+			font-size: 100%;
+			background-color: #124;
+			color: rgba(255, 255, 255, 0.6);
+			padding: 4vh;
+			padding: min(4vh, 4vw);
+			text-align: center;
+		}
+
+		#f a {
+			color: rgba(255, 255, 255, 0.8);
+			text-decoration: none;
+		}
+
+		#f a:hover, #f:focus {
+			color: white;
+			text-decoration: underline;
+		}
+
+		#phrase-c {
+			display: flex;
+			flex-direction: row;
+			background-color: #eee;
+		}
+
+		#phrase, #regenerate {
+			padding: 4vh;
+			padding: min(4vh, 4vw);
+			text-align: center;
+			line-height: 100%;
+		}
+
+		#phrase {
+			font-size: 4vh;
+			font-size: max(100%, min(4vw, 4vh));
+			flex-grow: 1;
+			color: #48f;
+		}
+
+		#regenerate {
+			font-size: 2vh;
+			font-size: max(100%, min(2vw, 2vh));
+			display: block;
+			cursor: pointer;
+			background-color: #48f;
+			color: white;
+			user-select: none;
+		}
+
+		#config {
+			background-color: #ddd;
+		}
+
+		#count-c, #transform-c, .list-group {
+			line-height: 100%;
+			font-size: 3vh;
+			font-size: max(100%, min(3vw, 3vh));
+		}
+
+		#count-c, #transform-c {
+			text-align: center;
+			display: flex;
+			flex-direction: row;
+		}
+		#toggles {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		#lists {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		#count-c > *, #transform-c > *, .list-group td {
+			padding: 2vh;
+			padding: min(2vh, 2vw);
+		}
+
+		.button {
+			background-color: #48f;
+			color: white;
+		}
+		.button.disabled {
+			background-color: #666;
+			color: #999;
+		}
+		.group {
+			background-color: #369;
+			color: white;
+		}
+		.group.active {
+			background-color: #48f;
+		}
+		.used:before {
+			content: '☐';
+		}
+		.used.active:before {
+			content: '☑︎';
+		}
+		.word-list:hover, .word-list:focus, .select-none:hover, .select-all:hover, .select-none:focus, .select-all:focus {
+			background-color: #8cf;
+			cursor: pointer;
+		}
+		.group-title {
+			background-color: #ccc;
+		}
+		.list-count {
+			text-align: right;
+		}
+		.select-all {
+			text-align: center;
+		}
+		#total-words {
+			color: #aaa;
+		}
+
+		/*@media (prefers-color-scheme: dark) {*/
+		/*	body {*/
+		/*		background-color: black;*/
+		/*		color: white;*/
+		/*	}*/
+		/*}*/
+	</style>
+</head>
+<body id="c">
+<header id="t">
+	<h1>words.supply</h1>
+	<span id="total-words"></span>
+</header>
+<article>
+	<section id="phrase-c">
+		<button id="regenerate" title="(R)egenerate" class="button" accesskey="r">&rarr;<br>&larr;</button>
+		<span class="loading" id="phrase">(loading)</span>
+	</section>
+	<section id="config">
+		<div id="toggles">
+			<div id="count-c">
+				<div>Count:</div>
+				<button id="fewer" title="(F)ewer words" class="button" accesskey="f">-</button>
+				<div id="count"></div>
+				<button id="more" title="(M)ore words" class="button" accesskey="m">+</button>
+			</div>
+			<div id="transform-c">
+				<div>Transform:</div>
+				<button id="transform-none" title="(N)one" class="transform group" accesskey="n">(none)</button>
+				<button id="transform-uppercase" title="(U)ppercase" class="transform group" accesskey="u">UPPER</button>
+				<button id="transform-lowercase" title="(L)owercase" class="transform group" accesskey="l">lower</button>
+				<button id="transform-titlecase" title="(T)itle" class="transform group" accesskey="t">Title</button>
+			</div>
+		</div>
+		<div id="lists"></div>
+	</section>
+</article>
+<footer id="f">
+	<p><a href="https://words.supply/">words.supply</a> by <a href="https://rickosborne.org">Rick Osborne</a>.</p>
+	<p><a href="https://github.com/rickosborne/words">Source is available on GitHub</a>, and is licensed under <a
+		href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA</a>.</p>
+</footer>
+<script type="text/javascript">
+	const wordLists = [
+		{
+			title: 'Colors (All)',
+			group: 'Color',
+			href: '/color/colors.txt',
+		}, {
+			title: 'Crayola Fluorescent Colors',
+			group: 'Color',
+			href: '/color/crayola-fluorescent.txt',
+		}, {
+			title: 'Crayola Standard Colors',
+			group: 'Color',
+			href: '/color/crayola-standard.txt',
+		}, {
+			title: 'HTML/CSS Colors',
+			group: 'Color',
+			href: '/color/html-css.txt',
+		}, {
+			title: 'Doctor Who Species',
+			group: 'Doctor Who',
+			href: '/doctor-who/species.txt',
+		}, {
+			title: 'Harry Potter (All)',
+			group: 'Harry Potter',
+			href: '/harry-potter/all.txt',
+		}, {
+			title: 'Harry Potter Spells / Potions',
+			group: 'Harry Potter',
+			href: '/harry-potter/spells-potions.txt',
+		}, {
+			title: 'Dungeons and Dragons Monsters',
+			group: 'RPG',
+			href: '/rpg/dnd-monsters.txt',
+		}, {
+			title: 'Star Trek Alpha / Beta Quadrant Species',
+			group: 'Star Trek',
+			href: '/star-trek/alpha-beta-species.txt',
+		}, {
+			title: 'Star Trek Cardassian Ship Names',
+			group: 'Star Trek',
+			href: '/star-trek/cardassian-ships.txt',
+		}, {
+			title: 'Star Trek Delta Quadrant Species',
+			group: 'Star Trek',
+			href: '/star-trek/delta-species.txt',
+		}, {
+			title: 'Star Trek Federation Ship Class Names',
+			group: 'Star Trek',
+			href: '/star-trek/federation-ship-class.txt',
+		}, {
+			title: 'Star Trek Federation Ship Names',
+			group: 'Star Trek',
+			href: '/star-trek/federation-ships.txt',
+		}, {
+			title: 'Star Trek Gamma Quadrant Species',
+			group: 'Star Trek',
+			href: '/star-trek/gamma-species.txt',
+		}, {
+			title: 'Star Trek Humanoid Species',
+			group: 'Star Trek',
+			href: '/star-trek/humanoid-species.txt',
+		}, {
+			title: 'Star Trek Klingon Ships',
+			group: 'Star Trek',
+			href: '/star-trek/klingon-ships.txt',
+		}, {
+			title: 'Star Trek Romulan Ships',
+			group: 'Star Trek',
+			href: '/star-trek/romulan-ships.txt',
+		}, {
+			title: 'Star Trek Ships (All)',
+			group: 'Star Trek',
+			href: '/star-trek/ships.txt',
+		}, {
+			title: 'Star Trek Species (All)',
+			group: 'Star Trek',
+			href: '/star-trek/species.txt',
+		}, {
+			title: 'Star Wars Planets',
+			group: 'Star Wars',
+			href: '/star-wars/planets.txt',
+		}, {
+			title: 'Elvish Words',
+			group: 'Tolkien',
+			href: '/tolkien/elvish.txt',
+		}
+	];
+	const settings = {
+		delimiter: '-',
+		totalWords: 0,
+		transform: 'lowercase',
+		wordCount: 4,
+		wordCountMax: 8,
+		wordCountMin: 1,
+		wordListTitles: [],
+	};
+	const fetchWordList = (function memoizeFetchWordList() {
+		const wordListCache = {};
+		return function memoizedFetchWordList(wordList) {
+			const href = wordList.href;
+			const dataFile = wordListCache[href];
+			if (dataFile != null) return Promise.resolve(dataFile);
+			return fetch('.' + href)
+				.then(response => {
+					if (response.ok) {
+						return response.text();
+					} else {
+						console.warn('Could not load: ', wordList, response);
+					}
+				})
+				.then(textOrNull => {
+					if (textOrNull != null) {
+						const words = textOrNull.split(/\r?\n+/g).filter(word => word != null && word !== '');
+						// wordListCache[href] = words;
+						return words;
+					}
+					console.warn('Could not load: ', wordList, textOrNull);
+					return [];
+				});
+		};
+	})();
+
+	function loadWordLists(doc) {
+		const lists = doc.getElementById('lists');
+		let groups = {};
+		let groupTables = {};
+		return Promise.all(wordLists.map(wordList => {
+			const groupTitle = wordList.group;
+			const groupId = groupTitle.toLowerCase().replace(/\W/g, '-');
+			if (groups[groupId] == null) {
+				const groupTableEl = doc.createElement('TABLE');
+				groupTableEl.className = 'list-group';
+				const groupRowEl = doc.createElement('TR');
+				groupRowEl.className = 'group-title';
+				const groupSelectNoneEl = doc.createElement('TD');
+				groupSelectNoneEl.innerText = '☐';
+				groupSelectNoneEl.className = 'select-none';
+				groupSelectNoneEl.title = 'Select none: ' + wordList.title;
+				const groupSelectAllEl = doc.createElement('TD');
+				groupSelectAllEl.innerText = '☑︎';
+				groupSelectAllEl.className = 'select-all'
+				groupSelectAllEl.title = 'Select all: ' + wordList.title;
+				const groupTitleCellEl = doc.createElement('TD');
+				groupTitleCellEl.appendChild(doc.createTextNode(groupTitle));
+				groupRowEl.appendChild(groupSelectNoneEl);
+				groupRowEl.appendChild(groupTitleCellEl);
+				groupRowEl.appendChild(groupSelectAllEl);
+				groupTableEl.appendChild(groupRowEl);
+				lists.appendChild(groupTableEl);
+				groupTables[groupId] = groupTableEl;
+				const wordListItems = [];
+				groups[groupId] = wordListItems;
+				groupSelectNoneEl.addEventListener('click', () => {
+					toggleWordGroup(doc, wordListItems, false);
+				});
+				groupSelectAllEl.addEventListener('click', () => {
+					toggleWordGroup(doc, wordListItems, true);
+				});
+			}
+			const tableEl = groupTables[groupId];
+			const wordListEl = doc.createElement('TR');
+			wordListEl.className = 'word-list';
+			const wordListTitleEl = doc.createElement('TD');
+			wordListTitleEl.className = 'list-title';
+			wordListTitleEl.innerText = wordList.title;
+			const wordListCountEl = doc.createElement('TD');
+			wordListCountEl.className = 'list-count';
+			const wordListUsedEl = doc.createElement('TD');
+			wordListUsedEl.classList.add('used', 'active');
+			wordListEl.appendChild(wordListUsedEl);
+			wordListEl.appendChild(wordListTitleEl);
+			wordListEl.appendChild(wordListCountEl);
+			tableEl.appendChild(wordListEl);
+			groups[groupId].push({
+				el: wordListEl,
+				usedEl: wordListUsedEl,
+				wordList: wordList
+			});
+			wordListEl.addEventListener('click', click => {
+				toggleWordList(doc, wordList, wordListUsedEl, !settings.wordListTitles.includes(wordList.title));
+				click.preventDefault();
+			});
+			return fetchWordList(wordList).then(words => {
+				wordListCountEl.appendChild(doc.createTextNode(words.length));
+				wordList.words = words;
+				if (words.length > 0) {
+					toggleWordList(doc, wordList, wordListUsedEl, true);
+				}
+			});
+		}));
+	}
+
+	function updateTotalWords(doc) {
+		doc.getElementById('total-words').innerText = settings.totalWords + ' words';
+	}
+
+	function toggleWordGroup(doc, wordListItems, onOff) {
+		for (const item of wordListItems) {
+			toggleWordList(doc, item.wordList, item.usedEl, onOff);
+		}
+	}
+
+	function toggleWordList(doc, wordList, usedEl, onOff) {
+		const titleIndex = settings.wordListTitles.indexOf(wordList.title);
+		usedEl.classList.toggle('active', onOff);
+		if (onOff) {
+			if (titleIndex < 0) {
+				settings.wordListTitles.push(wordList.title);
+				settings.totalWords += wordList.words.length;
+			}
+		} else {
+			if (titleIndex >= 0) {
+				settings.wordListTitles = settings.wordListTitles.filter(title => title !== wordList.title);
+				settings.totalWords -= wordList.words.length;
+			}
+		}
+		updateTotalWords(doc);
+		regeneratePhrase(doc);
+	}
+
+	function transformWord(word) {
+		switch (settings.transform) {
+			case 'lowercase':
+				return word.toLocaleLowerCase();
+			case 'uppercase':
+				return word.toLocaleUpperCase();
+			case 'titlecase':
+				return word.replace(/\b(\w)/g, c => c.toLocaleUpperCase());
+		}
+		return word;
+	}
+
+	function formatWord(word) {
+		return transformWord(word).replace(/\W+/g, '');
+	}
+
+	function randomItem(arr) {
+		return Array.isArray(arr) && arr.length > 0 ? arr[Math.floor(Math.random() * arr.length)] : undefined;
+	}
+
+	function wordListFromTitle(title) {
+		return wordLists.filter(wordList => wordList.title === title)[0].words;
+	}
+
+	function randomWordFromRandomList() {
+		const wordListTitle = randomItem(settings.wordListTitles);
+		const wordList = wordListFromTitle(wordListTitle);
+		return randomItem(wordList);
+	}
+
+	function randomWord() {
+		let wordNum = Math.floor(Math.random() * settings.totalWords);
+		for (let wordListTitle of settings.wordListTitles) {
+			const words = wordListFromTitle(wordListTitle);
+			if (words.length > wordNum) {
+				return words[wordNum];
+			} else {
+				wordNum -= words.length;
+			}
+		}
+		console.warn('Fell off the end of the word lists with wordNum ', wordNum);
+		return '?';
+	}
+
+	function generatePhrase() {
+		if (settings.wordListTitles.length < 1) {
+			return '(no word lists selected)';
+		}
+		const parts = [];
+		for (let wordNum = 0; wordNum < settings.wordCount; wordNum++) {
+			const word = randomWord();
+			parts.push(formatWord(word));
+		}
+		return parts.join(settings.delimiter);
+	}
+
+	function regeneratePhrase(doc) {
+		const phraseEl = doc.getElementById('phrase');
+		const phrase = generatePhrase();
+		phraseEl.innerText = phrase;
+	}
+
+	function toggleButton(doc, button, enabled) {
+		const buttonEl = typeof button === 'string' ? doc.getElementById(button) : button;
+		buttonEl.disabled = !enabled;
+		buttonEl.classList.toggle('disabled', buttonEl.disabled);
+	}
+
+	function toggleGroupItem(doc, button, active) {
+		const buttonEl = typeof button === 'string' ? doc.getElementById(button) : button;
+		buttonEl.classList.toggle('active', active);
+	}
+
+	function updateMoreFewer(doc) {
+		toggleButton(doc, 'more', settings.wordCount < settings.wordCountMax);
+		toggleButton(doc, 'fewer', settings.wordCount > settings.wordCountMin);
+		const countEl = doc.getElementById('count');
+		countEl.innerText = settings.wordCount;
+	}
+
+	function updateTransform(doc) {
+		for (const el of doc.getElementsByClassName('transform')) {
+			toggleGroupItem(doc, el, el.id === 'transform-' + settings.transform);
+		}
+	}
+
+	function moreWords(doc) {
+		if (settings.wordCount < settings.wordCountMax) {
+			settings.wordCount++;
+			updateMoreFewer(doc);
+			regeneratePhrase(doc);
+		}
+	}
+
+	function fewerWords(doc) {
+		if (settings.wordCount > settings.wordCountMin) {
+			settings.wordCount--;
+			updateMoreFewer(doc);
+			regeneratePhrase(doc);
+		}
+	}
+
+	(function (win, doc) {
+		loadWordLists(doc).then(() => {
+			updateMoreFewer(doc);
+			updateTransform(doc, doc.getElementById('transform-' + settings.transform));
+			regeneratePhrase(doc);
+			doc.getElementById('regenerate').addEventListener('click', () => {
+				regeneratePhrase(doc);
+			});
+			doc.getElementById('more').addEventListener('click', () => moreWords(doc));
+			doc.getElementById('fewer').addEventListener('click', () => fewerWords(doc));
+			for (const transformEl of doc.getElementsByClassName('transform')) {
+				transformEl.addEventListener('click', click => {
+					settings.transform = click.target.id.split('-')[1];
+					updateTransform(doc);
+					regeneratePhrase(doc);
+				});
+			}
+			win.addEventListener('keypress', key => {
+				switch (key.key.toLowerCase()) {
+					case 'r':
+						regeneratePhrase(doc);
+						break;
+					case '+':
+					case 'm':
+						moreWords(doc);
+						break;
+					case '-':
+					case 'f':
+						fewerWords(doc);
+						break;
+					case 'u':
+						settings.transform = 'uppercase';
+						updateTransform(doc);
+						regeneratePhrase(doc);
+						break;
+					case 'l':
+						settings.transform = 'lowercase';
+						updateTransform(doc);
+						regeneratePhrase(doc);
+						break;
+					case 'n':
+						settings.transform = 'none';
+						updateTransform(doc);
+						regeneratePhrase(doc);
+						break;
+					case 't':
+						settings.transform = 'titlecase';
+						updateTransform(doc);
+						regeneratePhrase(doc);
+						break;
+				}
+			});
+		});
+	})(this || window, document);
+</script>
+</body>
+</html>
